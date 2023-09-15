@@ -1,0 +1,144 @@
+//@use "../../assets/scss/media-queries.scss" as *;
+
+// @include lt-xl {
+//   padding: 30px 100px;
+// }
+
+$screen-xs-max: 599px; // Mobile 360 => 599
+
+$screen-sm-min: 600px; // Tablet Vertical
+$screen-sm-max: 900px; // Tablet Horizental
+
+$screen-md-min: 960px;
+$screen-md-max: 1279px; // Small Laptop
+
+$screen-lg-min: 1280px;
+$screen-lg-max: 1370px; // Normal Laptop
+
+$screen-llg-min: 1371px;
+$screen-llg-max: 1499px; // laptops of 1400px
+
+// from 1371 to 1500 is special screen
+
+$screen-xl-min: 1500px;
+$screen-xl-max: 1680px; // LARGE Laptop
+
+$screen-xxl-min: 1681px;
+$screen-xxl-max: 1920px; // LARGE BIG SCREEN
+
+// media devices
+@mixin xs {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+@mixin llg {
+  @media screen and (min-width: #{$screen-llg-min}) and (max-width: #{$screen-llg-max}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{$screen-xl-min}) and (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media screen and (min-width: #{$screen-xxl-min}) and (max-width: #{$screen-xxl-max}) {
+    @content;
+  }
+}
+
+// media lt queries
+@mixin lt-sm {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin lt-md {
+  @media screen and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin lt-lg {
+  @media screen and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin lt-llg {
+  @media screen and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+@mixin lt-xl {
+  @media screen and (max-width: #{$screen-llg-max}) {
+    @content;
+  }
+}
+
+@mixin lt-xxl {
+  @media screen and (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
+// media gt queries
+@mixin gt-xs {
+  @media screen and (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin gt-sm {
+  @media screen and (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin gt-md {
+  @media screen and (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin gt-lg {
+  @media screen and (min-width: #{$screen-llg-min}) {
+    @content;
+  }
+}
+
+@mixin gt-llg {
+  @media screen and (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+@mixin gt-xl {
+  @media screen and (min-width: #{$screen-xxl-min}) {
+    @content;
+  }
+}
