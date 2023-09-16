@@ -15,11 +15,46 @@ import { useDispatch, useSelector } from "react-redux";
 import { changelocalLinksOrder, saveLinks } from "../../Redux/all_data.reducer";
 import toast from "react-hot-toast";
 
+import { data as media_links } from "../../Assets/Data/Links";
+
 function MakeDevLink() {
   const local_links = useSelector((state) => state.data.local_links);
   const dispatch = useDispatch();
 
   const handle_save_links_to_mobile = () => {
+    let contin = true;
+
+    local_links.forEach((item) => {
+      // ################### To check if the platform is right ###################
+      if (item.platform === "" && contin) {
+        contin = false;
+        toast.error(`Please select a platform for the Link #${item.id}`);
+      }
+
+      // ################### To check if the url is right ###################
+      const urlPattern =
+        /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
+      if (!urlPattern.test(item.link) && contin) {
+        contin = false;
+        toast.error(`Please enter a valid url for the Link #${item.id}`);
+      }
+
+      // ################### To check if the url match with the platform ###################
+      let valid_match = media_links.find(
+        (item2) => item2.title === item.platform
+      );
+
+      if (valid_match && valid_match.valid !== "personal" && contin) {
+        if (!item.link.includes(valid_match.valid) && contin) {
+          contin = false;
+          toast.error(
+            `The url for the Link #${item.id} doesn't match with the platform "${item.platform}"`
+          );
+        }
+      }
+    });
+
+    if (!contin) return;
     dispatch(saveLinks([...local_links]));
   };
 
