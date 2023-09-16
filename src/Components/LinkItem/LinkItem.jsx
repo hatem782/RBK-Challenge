@@ -27,7 +27,6 @@ function LinkItem({ item }) {
   };
 
   const handle_delete = () => {
-    console.log(item.id);
     dispatch(removeLocalLink(item.id));
   };
 

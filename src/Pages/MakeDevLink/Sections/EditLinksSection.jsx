@@ -33,7 +33,6 @@ const EditLinksSection = () => {
       const newItems = [...local_links];
       newItems.splice(oldIndex, 1);
       newItems.splice(newIndex, 0, local_links[oldIndex]);
-      console.log(newItems);
       dispatch(changelocalLinksOrder(newItems));
     }
   };
