@@ -15,8 +15,6 @@ function Mobile({ className = "", no_mobile_shape = false }) {
   const user_last_name = useSelector((state) => state.data.user_last_name);
   const user_email = useSelector((state) => state.data.user_email);
 
-  console.log(user_img);
-
   return (
     <div className={`${styles.mobile_cont} ${className}`}>
       <div className={styles.mobile}>
@@ -104,7 +102,7 @@ const MyLink = ({ data }) => {
   }, [data]);
 
   const GoTo = () => {
-    window.open(data.link);
+    window.open(data.link, "_blank");
   };
 
   return (
