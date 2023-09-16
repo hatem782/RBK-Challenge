@@ -6,6 +6,14 @@
   @include lt-xxl {
     width: 68%;
   }
+
+  @include lt-llg {
+    width: 80%;
+  }
+
+  @include lt-lg {
+    width: 98%;
+  }
 }
 
 .mobile {

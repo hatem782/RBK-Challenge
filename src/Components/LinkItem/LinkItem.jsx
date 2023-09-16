@@ -47,10 +47,11 @@ function LinkItem({ item }) {
           label="Platform"
           name="platform"
           value={item.platform}
-          options={list_medias.filter((media) => {
-            let selected_platforms = local_links.map((ll) => ll.platform);
-            return !selected_platforms.includes(media.title);
-          })}
+          // options={list_medias.filter((media) => {
+          //   let selected_platforms = local_links.map((ll) => ll.platform);
+          //   return !selected_platforms.includes(media.title);
+          // })}
+          options={list_medias}
           all_options={list_medias}
           onChange={handle_change}
         />

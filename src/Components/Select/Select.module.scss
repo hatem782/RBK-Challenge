@@ -95,6 +95,8 @@ $purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
     transition: all 0.2s;
     max-height: 300px;
     overflow-y: auto;
+    box-shadow: 0 0 10px 0 rgba(99, 60, 255, 0.25);
+    border: solid 1px var(--normal-purple);
 
     &::-webkit-scrollbar {
       width: 7px !important;

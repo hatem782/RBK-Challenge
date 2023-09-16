@@ -29,7 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    min-height: 600px;
     height: 100vh;
   }
 
@@ -123,6 +123,10 @@
       width: 45%;
     }
 
+    @include lt-lg {
+      width: 60%;
+    }
+
     .img_input {
       aspect-ratio: 1/1;
       height: 180px;
@@ -140,6 +144,10 @@
         height: 160px;
       }
 
+      @include lt-lg {
+        height: 140px;
+      }
+
       cursor: pointer;
 
       input {
@@ -152,6 +160,10 @@
         @include lt-xxl {
           height: 40px;
         }
+
+        @include lt-lg {
+          height: 35px;
+        }
       }
 
       span {
@@ -161,6 +173,11 @@
         @include lt-xxl {
           font-size: 14px;
           margin-top: 5px;
+        }
+
+        @include lt-lg {
+          font-size: 12px;
+          margin-top: 3px;
         }
       }
     }
@@ -204,6 +221,10 @@
 
       @include lt-xxl {
         width: 45%;
+      }
+
+      @include lt-lg {
+        width: 60%;
       }
     }
   }
