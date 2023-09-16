@@ -9,7 +9,7 @@ import arrow_icon from "../../Assets/Svgs/arrow.svg";
 import { data as list_medias } from "../../Assets/Data/Links";
 
 function Mobile() {
-  const local_links = useSelector((state) => state.data.local_links);
+  const global_links = useSelector((state) => state.data.global_links);
 
   return (
     <div className={styles.mobile_cont}>
@@ -38,7 +38,7 @@ function Mobile() {
             />
           </div>
 
-          {local_links.map((item, key) => {
+          {global_links.map((item, key) => {
             return (
               <div key={key} className={styles.mobile_link}>
                 {item.platform ? (

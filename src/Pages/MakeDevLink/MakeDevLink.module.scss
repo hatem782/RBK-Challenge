@@ -14,15 +14,17 @@
   .mobile_section,
   .edit_section {
     border-radius: 0.75rem;
-    background-color: var(--comp-background);
   }
 
   .mobile_section {
     width: 35.25%;
-
+    background-color: var(--comp-background);
+    padding: 2% 2%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    height: 100vh;
   }
 
   .edit_section {
@@ -31,23 +33,41 @@
     overflow-y: auto;
     overflow-x: hidden;
 
-    padding: 2% 2%;
-
-    h1 {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--title-big);
+    &::-webkit-scrollbar {
+      width: 0px;
     }
 
-    p {
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--grey1);
-      margin: 15px 0px 40px 0px;
+    .edit_links_parts {
+      background-color: var(--comp-background);
+      padding: 2% 2%;
+
+      h1 {
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--title-big);
+      }
+
+      p {
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--grey1);
+        margin: 15px 0px 40px 0px;
+      }
+
+      .btn_fw {
+        width: 100%;
+      }
     }
 
-    .btn_fw {
+    .footer_for_save {
       width: 100%;
+      margin-top: 3%;
+      border-top: solid 1px #d9d9d9;
+      padding: 3% 2%;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
     }
   }
 }

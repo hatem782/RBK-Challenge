@@ -12,12 +12,40 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { useDispatch, useSelector } from "react-redux";
-import { changelocalLinksOrder } from "../../Redux/all_data.reducer";
+import { changelocalLinksOrder, saveLinks } from "../../Redux/all_data.reducer";
 import toast from "react-hot-toast";
 
 function MakeDevLink() {
+  const local_links = useSelector((state) => state.data.local_links);
   const dispatch = useDispatch();
 
+  const handle_save_links_to_mobile = () => {
+    dispatch(saveLinks([...local_links]));
+  };
+
+  return (
+    <div className={styles.main}>
+      <Navbar />
+
+      <div className={styles.container}>
+        <div className={styles.mobile_section}>
+          <Mobile />
+        </div>
+        <div className={styles.edit_section}>
+          <EditLinksSection />
+          <div className={styles.footer_for_save}>
+            <Button type="filled" onClick={handle_save_links_to_mobile}>
+              Save
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const EditLinksSection = () => {
+  const dispatch = useDispatch();
   const local_links = useSelector((state) => state.data.local_links);
 
   const onDragEnd = (event) => {
@@ -58,47 +86,38 @@ function MakeDevLink() {
   };
 
   return (
-    <div className={styles.main}>
-      <Navbar />
+    <div className={styles.edit_links_parts}>
+      <h1>Customize your links</h1>
+      <p>
+        Add/edit/remove links below and then share all your profiles with the
+        world!
+      </p>
 
-      <div className={styles.container}>
-        <div className={styles.mobile_section}>
-          <Mobile />
-        </div>
-        <div className={styles.edit_section}>
-          <h1>Customize your links</h1>
-          <p>
-            Add/edit/remove links below and then share all your profiles with
-            the world!
-          </p>
+      <Button
+        type="outlined"
+        icon={<AddIcon />}
+        className={styles.btn_fw}
+        onClick={AddLink}
+      >
+        Add new Link
+      </Button>
 
-          <Button
-            type="outlined"
-            icon={<AddIcon />}
-            className={styles.btn_fw}
-            onClick={AddLink}
-          >
-            Add new Link
-          </Button>
-
-          <DndContext
-            collisionDetection={closestCenter}
-            onDragEnd={onDragEnd}
-            className={styles.links}
-          >
-            <SortableContext
-              items={local_links}
-              strategy={verticalListSortingStrategy}
-            >
-              {local_links.map((item, key) => (
-                <LinkItem key={item.id} item={item} />
-              ))}
-            </SortableContext>
-          </DndContext>
-        </div>
-      </div>
+      <DndContext
+        collisionDetection={closestCenter}
+        onDragEnd={onDragEnd}
+        className={styles.links}
+      >
+        <SortableContext
+          items={local_links}
+          strategy={verticalListSortingStrategy}
+        >
+          {local_links.map((item, key) => (
+            <LinkItem key={item.id} item={item} />
+          ))}
+        </SortableContext>
+      </DndContext>
     </div>
   );
-}
+};
 
 export default MakeDevLink;

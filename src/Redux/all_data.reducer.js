@@ -3,16 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 export const DataSlice = createSlice({
   name: "data",
   initialState: {
-    links: [],
-    local_links: [
+    global_links: [
       { id: 1, platform: "", link: "" },
-      { id: 2, platform: "", link: "" },
-      { id: 3, platform: "", link: "" },
+      { id: 1, platform: "", link: "" },
+      { id: 1, platform: "", link: "" },
     ],
+    local_links: [{ id: 1, platform: "", link: "" }],
   },
   reducers: {
     saveLinks: (state, action) => {
-      state.links = action.payload;
+      state.global_links = action.payload;
     },
     addLocalLink: (state, action) => {
       state.local_links.push(action.payload);
