@@ -1,0 +1,64 @@
+.mobile {
+  position: relative;
+  height: 80%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    height: 100%;
+  }
+
+  .mobile_data {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+
+    padding: 20% 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    .mobile_img {
+      .circle_skeleton {
+        height: 110px;
+        width: 110px;
+      }
+    }
+
+    .mobile_full_name {
+      width: 70%;
+      .full_name_skeleton {
+        height: 20px;
+        width: 100%;
+        margin: 20px 0px 10px 0px;
+        border-radius: 500px;
+      }
+    }
+
+    .mobile_email {
+      width: 50%;
+      .email_skeleton {
+        height: 12px;
+        width: 100%;
+        margin: 5px 0px;
+        border-radius: 500px;
+      }
+    }
+
+    .mobile_link {
+      width: 80%;
+      .link_skeleton {
+        height: 50px;
+        width: 100%;
+        margin: 20px 0px 0px 0px;
+        border-radius: 10px;
+      }
+    }
+  }
+}

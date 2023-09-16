@@ -1,0 +1,52 @@
+.main {
+  min-height: 100vh;
+  padding: 1.5%;
+}
+
+.container {
+  width: 100%;
+  height: 800px;
+  margin: 1.5% 0px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .mobile_section,
+  .edit_section {
+    border-radius: 0.75rem;
+    height: 100%;
+    background-color: var(--comp-background);
+  }
+
+  .mobile_section {
+    width: 35.25%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .edit_section {
+    width: 63.25%;
+
+    padding: 2% 2%;
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--title-big);
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-normal);
+      margin: 15px 0px 40px 0px;
+    }
+
+    .btn_fw {
+      width: 100%;
+    }
+  }
+}

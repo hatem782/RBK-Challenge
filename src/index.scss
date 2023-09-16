@@ -1,22 +1,15 @@
 @use "./Assets/scss/media-queries.scss" as *;
 
-//############################ COMMON #######################
+//############################ Colors #######################
 
-body {
-  margin: 0;
-  padding: 0;
-  // min-width: 1500px;
-}
-
-* {
-  box-sizing: border-box;
-  font-family: Montserrat;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
+:root {
+  --page-background: #fbfafb;
+  --comp-background: #ffffff;
+  --grey1: #737373;
+  --light-purple: #efebff;
+  --normal-purple: #633cff;
+  --title-big: #333333;
+  --text-normal: #737373;
 }
 
 //############################ SCROLL #######################
@@ -30,15 +23,26 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--main);
-  border: 1px solid rgba(217, 217, 217, 0.46);
+  background: var(--normal-purple);
+  // border-radius: 500px;
 }
 
-::-webkit-scrollbar-track {
-  background-color: rgba(217, 217, 217, 0.46);
-}
+// ::-webkit-scrollbar-track {
+//   background-color: rgba(217, 217, 217, 0.46);
+// }
 
 //############################ FONTS #######################
+
+@font-face {
+  font-family: "InstrumentSans";
+  src: url("./Assets/Fonts/InstrumentSans-VariableFont_wdth.ttf");
+}
+
+@font-face {
+  font-family: "Poppin";
+  src: url("./Assets/Fonts/Poppins-Thin.ttf");
+  font-weight: 100;
+}
 
 @font-face {
   font-family: "Poppin";
@@ -92,4 +96,25 @@ a {
   font-family: "Poppin";
   src: url("./Assets/Fonts/Poppins-Black.ttf");
   font-weight: 900;
+}
+
+//############################ COMMON #######################
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--page-background);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Montserrat;
+  margin: 0;
+  padding: 0;
+  font-family: "InstrumentSans";
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
 }

@@ -1,0 +1,51 @@
+/*############################### Declarations ###############################*/
+$purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
+  hue-rotate(246deg) brightness(103%) contrast(108%);
+/*############################### Declarations ###############################*/
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+  margin: 0px 10px;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    span {
+      color: var(--normal-purple);
+    }
+
+    img {
+      filter: $purple-img;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 0px 5px 0px 0px;
+  }
+
+  span {
+    color: var(--grey1);
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
+
+.active {
+  background-color: var(--light-purple);
+
+  span {
+    color: var(--normal-purple);
+  }
+
+  img {
+    filter: $purple-img;
+  }
+}
