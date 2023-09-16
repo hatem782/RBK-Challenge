@@ -45,6 +45,7 @@ function LinkItem({ item }) {
         <Select
           label="Platform"
           name="platform"
+          value={item.platform}
           options={list_medias}
           onChange={handle_change}
         />

@@ -11,8 +11,12 @@ import Button from "../../Components/Button/Button";
 
 function Navbar() {
   const links = [
-    { name: "Links", icon: link_icon, url: "/links_manage" },
-    { name: "Profile Details", icon: user_icon, url: "/profile_details" },
+    { name: "Links", icon: link_icon, url: "/make-profile/edit-links" },
+    {
+      name: "Profile Details",
+      icon: user_icon,
+      url: "/make-profile/edit-profile",
+    },
   ];
 
   const navig = useNavigate();

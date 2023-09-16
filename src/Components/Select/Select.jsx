@@ -29,6 +29,15 @@ function Select({
     }
   }, [selected]);
 
+  useEffect(() => {
+    if (value) {
+      const selected_option = options.find((item) => item.title === value);
+      if (selected_option) {
+        setSelected(selected_option);
+      }
+    }
+  }, [value]);
+
   return (
     <div className={styles.main}>
       <label>{label}</label>
