@@ -7,10 +7,11 @@ import Select from "../Select/Select";
 
 import { data as list_medias } from "../../Assets/Data/Links";
 import Input from "../Input/Input";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeLocalLink, updateById } from "../../Redux/all_data.reducer";
 
 function LinkItem({ item }) {
+  const local_links = useSelector((state) => state.data.local_links);
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: item.id });
   const dispatch = useDispatch();
@@ -46,7 +47,11 @@ function LinkItem({ item }) {
           label="Platform"
           name="platform"
           value={item.platform}
-          options={list_medias}
+          options={list_medias.filter((media) => {
+            let selected_platforms = local_links.map((ll) => ll.platform);
+            return !selected_platforms.includes(media.title);
+          })}
+          all_options={list_medias}
           onChange={handle_change}
         />
 

@@ -1,3 +1,5 @@
+@use "../../Assets/Scss/media-queries.scss" as *;
+
 .main {
   width: 100%;
   min-height: 100vh;
@@ -19,13 +21,22 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 20vh;
+  top: 200px;
+
+  @include lt-xxl {
+    top: 150px;
+  }
 
   .mobile {
+    box-shadow: 0 0 10px 0 rgba(99, 60, 255, 0.25);
     width: 350px;
     height: 650px;
     padding: 5px;
     background-color: white;
     border-radius: 20px;
+
+    @include lt-xxl {
+      height: 600px;
+    }
   }
 }

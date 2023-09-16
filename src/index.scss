@@ -16,6 +16,18 @@
 ::-webkit-scrollbar {
   width: 10px;
 
+  @include lt-xxl {
+    width: 9px;
+  }
+
+  @include lt-xl {
+    width: 8px;
+  }
+
+  @include lt-llg {
+    width: 7px;
+  }
+
   @include lt-sm {
     width: 0px;
   }

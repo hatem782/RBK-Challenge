@@ -1,3 +1,5 @@
+@use "../../Assets/Scss/media-queries.scss" as *;
+
 .main {
   width: 100%;
   background-color: var(--comp-background);
@@ -8,8 +10,17 @@
   align-items: center;
   justify-content: space-between;
 
+  @include lt-xxl {
+    border-radius: 0.55rem;
+    padding: 20px 15px;
+  }
+
   .logo {
     height: 40px;
+
+    @include lt-xxl {
+      height: 35px;
+    }
   }
 
   .links {

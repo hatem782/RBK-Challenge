@@ -1,3 +1,5 @@
+@use "../../Assets/Scss/media-queries.scss" as *;
+
 /*############################### Declarations ###############################*/
 $purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
   hue-rotate(246deg) brightness(103%) contrast(108%);
@@ -16,6 +18,10 @@ $purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
 
   transition: all 0.2s ease-in-out;
 
+  @include lt-xxl {
+    padding: 12px 20px;
+  }
+
   &:hover {
     span {
       color: var(--normal-purple);
@@ -29,6 +35,12 @@ $purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
   img {
     display: block;
     margin: 0px 5px 0px 0px;
+    height: 20px;
+
+    @include lt-xxl {
+      margin: 0px 3px 0px 0px;
+      height: 19px;
+    }
   }
 
   span {

@@ -1,9 +1,16 @@
+@use "../../Assets/Scss/media-queries.scss" as *;
+
 .main {
   width: 100%;
   margin: 30px 0px;
   padding: 20px;
   background-color: var(--page-background);
   border-radius: 8px;
+
+  @include lt-xxl {
+    margin: 20px 0px;
+    padding: 18px;
+  }
 }
 
 .header {
@@ -27,6 +34,10 @@
       font-weight: 600;
       font-size: 16px;
       color: var(--grey1);
+
+      @include lt-xxl {
+        font-size: 15px;
+      }
     }
   }
 
@@ -35,5 +46,9 @@
     font-size: 16px;
     font-weight: 400;
     color: var(--grey1);
+
+    @include lt-xxl {
+      font-size: 15px;
+    }
   }
 }

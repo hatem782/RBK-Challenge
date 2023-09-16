@@ -10,6 +10,7 @@ function Select({
   value = null,
   onChange = () => {},
   options = [],
+  all_options = [],
 }) {
   const [isOpen, setIsOpen] = useState("");
   const [selected, setSelected] = useState(null);
@@ -31,7 +32,7 @@ function Select({
 
   useEffect(() => {
     if (value) {
-      const selected_option = options.find((item) => item.title === value);
+      const selected_option = all_options.find((item) => item.title === value);
       if (selected_option) {
         setSelected(selected_option);
       }

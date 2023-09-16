@@ -1,3 +1,5 @@
+@use "../../Assets/Scss/media-queries.scss" as *;
+
 .main {
   min-height: 100vh;
   padding: 1.5%;
@@ -14,6 +16,10 @@
   .mobile_section,
   .edit_section {
     border-radius: 0.75rem;
+
+    @include lt-xxl {
+      border-radius: 0.55rem;
+    }
   }
 
   .mobile_section {
@@ -45,6 +51,10 @@
         font-size: 36px;
         font-weight: 700;
         color: var(--title-big);
+
+        @include lt-xxl {
+          font-size: 32px;
+        }
       }
 
       p {
@@ -52,6 +62,11 @@
         font-weight: 400;
         color: var(--grey1);
         margin: 15px 0px 40px 0px;
+
+        @include lt-xxl {
+          font-size: 17px;
+          margin: 10px 0px 30px 0px;
+        }
       }
 
       .btn_fw {
@@ -82,11 +97,19 @@
   padding: 30px 30px;
   border-radius: 8px;
 
+  @include lt-xxl {
+    padding: 20px 20px;
+  }
+
   .left {
     span {
       color: var(--grey1);
       font-size: 16px;
       font-weight: 400;
+
+      @include lt-xxl {
+        font-size: 15px;
+      }
     }
   }
 
@@ -95,6 +118,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include lt-xxl {
+      width: 45%;
+    }
 
     .img_input {
       aspect-ratio: 1/1;
@@ -109,6 +136,10 @@
       justify-content: center;
       flex-direction: column;
 
+      @include lt-xxl {
+        height: 160px;
+      }
+
       cursor: pointer;
 
       input {
@@ -117,11 +148,20 @@
 
       img {
         height: 45px;
+
+        @include lt-xxl {
+          height: 40px;
+        }
       }
 
       span {
         color: #000;
         font-size: 16px;
+
+        @include lt-xxl {
+          font-size: 14px;
+          margin-top: 5px;
+        }
       }
     }
 
@@ -152,11 +192,19 @@
         color: var(--grey1);
         font-size: 16px;
         font-weight: 400;
+
+        @include lt-xxl {
+          font-size: 15px;
+        }
       }
     }
 
     .right {
       width: 40%;
+
+      @include lt-xxl {
+        width: 45%;
+      }
     }
   }
 }
