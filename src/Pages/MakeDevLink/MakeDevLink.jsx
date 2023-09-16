@@ -23,11 +23,12 @@ function MakeDevLink() {
   const onDragEnd = (event) => {
     const { active, over } = event;
     if (active.id !== over.id) {
-      const oldIndex = local_links.indexOf(active.id);
-      const newIndex = local_links.indexOf(over.id);
+      const oldIndex = local_links.findIndex((item) => item.id === active.id);
+      const newIndex = local_links.findIndex((item) => item.id === over.id);
       const newItems = [...local_links];
       newItems.splice(oldIndex, 1);
-      newItems.splice(newIndex, 0, active.id);
+      newItems.splice(newIndex, 0, local_links[oldIndex]);
+      console.log(newItems);
       dispatch(changelocalLinksOrder(newItems));
     }
   };
