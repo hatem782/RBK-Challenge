@@ -7,6 +7,7 @@ export const DataSlice = createSlice({
     local_links: [
       { id: 1, platform: "", link: "" },
       { id: 2, platform: "", link: "" },
+      { id: 3, platform: "", link: "" },
     ],
   },
   reducers: {
@@ -23,6 +24,18 @@ export const DataSlice = createSlice({
     changelocalLinksOrder: (state, action) => {
       state.local_links = action.payload;
     },
+    updateById: (state, action) => {
+      let id = action.payload.id;
+      let platform = action.payload.platform;
+      let link = action.payload.link;
+      state.local_links = state.local_links.map((item, i) => {
+        if (item.id === id) {
+          item.platform = platform;
+          item.link = link;
+        }
+        return item;
+      });
+    },
   },
 });
 
@@ -31,6 +44,7 @@ export const {
   addLocalLink,
   removeLocalLink,
   changelocalLinksOrder,
+  updateById,
 } = DataSlice.actions;
 
 export default DataSlice.reducer;

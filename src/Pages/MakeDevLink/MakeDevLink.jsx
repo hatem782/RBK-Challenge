@@ -39,12 +39,17 @@ function MakeDevLink() {
     } else {
       let new_id;
       if (local_links.length === 0) {
-        new_id = 1;
+        new_id = 0;
       } else {
-        new_id = local_links[local_links.length - 1].id + 1;
+        new_id = local_links[0].id;
+        for (let i = 0; i < local_links.length; i++) {
+          if (local_links[i].id > new_id) {
+            new_id = local_links[i].id;
+          }
+        }
       }
       const new_link = {
-        id: new_id,
+        id: new_id + 1,
         platform: "",
         link: "",
       };

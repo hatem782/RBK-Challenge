@@ -8,9 +8,9 @@ import Select from "../Select/Select";
 import { data as list_medias } from "../../Assets/Data/Links";
 import Input from "../Input/Input";
 import { useDispatch } from "react-redux";
-import { removeLocalLink } from "../../Redux/all_data.reducer";
+import { removeLocalLink, updateById } from "../../Redux/all_data.reducer";
 
-function LinkItem({ item, index }) {
+function LinkItem({ item }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: item.id });
   const dispatch = useDispatch();
@@ -20,10 +20,9 @@ function LinkItem({ item, index }) {
     transform: CSS.Transform.toString(transform),
   };
 
-  const [form, setForm] = useState({ platform: "", link: "" });
-
   const handle_change = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    let newData = { ...item, [e.target.name]: e.target.value };
+    dispatch(updateById(newData));
   };
 
   const handle_delete = () => {
@@ -54,7 +53,7 @@ function LinkItem({ item, index }) {
           label="Link"
           placeholder="URL HERE"
           name="link"
-          value={form.link}
+          value={item.link}
           onChange={handle_change}
         />
       </div>
