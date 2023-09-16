@@ -148,6 +148,11 @@
     padding: 12px 16px;
   }
 
+  @include lt-sm {
+    margin: 10px 0px 0px 0px;
+    background-color: red;
+  }
+
   .left {
     display: flex;
     align-items: center;
