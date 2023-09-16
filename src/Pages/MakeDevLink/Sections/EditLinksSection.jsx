@@ -95,7 +95,13 @@ const EditLinksSection = () => {
     });
 
     if (!contin) return;
-    dispatch(saveLinks([...local_links]));
+    let fixed_local_links = local_links.map((item) => {
+      let start_with = item.link.substring(0, 3);
+      if (start_with === "www") {
+        return { ...item, link: "https://" + item.link };
+      }
+    });
+    dispatch(saveLinks([...fixed_local_links]));
     dispatch(SaveAllToLocalStorage());
     toast.success("Links saved successfully");
   };
