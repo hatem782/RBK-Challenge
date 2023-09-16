@@ -101,13 +101,11 @@ const MyLink = ({ data }) => {
     }
   }, [data]);
 
-  const GoTo = () => {
-    window.open(data.link, "_blank");
-  };
-
   return (
-    <div
-      onClick={GoTo}
+    <a
+      href={data.link}
+      target="_blank"
+      rel="noreferrer"
       className={styles.MyLink}
       style={{ backgroundColor: custom_link.color }}
     >
@@ -118,7 +116,7 @@ const MyLink = ({ data }) => {
       <div className={styles.right}>
         <img src={arrow_icon} alt="go" />
       </div>
-    </div>
+    </a>
   );
 };
 
