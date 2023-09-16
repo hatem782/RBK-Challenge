@@ -1,0 +1,31 @@
+.main {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  padding: 1.5%;
+  height: 40vh;
+  background-color: var(--normal-purple);
+  border-radius: 0px 0px 50px 50px;
+}
+
+.body {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20vh;
+
+  .mobile {
+    width: 350px;
+    height: 650px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 20px;
+  }
+}

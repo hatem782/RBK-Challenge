@@ -42,7 +42,9 @@ const EditProfileSection = () => {
 
   const onImgChange = (e) => {
     const file = e.target.files[0];
-    const img64_file = URL.createObjectURL(file);
+    const img64_file = (window.URL ? URL : window.webkitURL).createObjectURL(
+      file
+    );
     setImg64(img64_file);
   };
 
@@ -72,6 +74,7 @@ const EditProfileSection = () => {
 
     dispatch(setUserData({ ...form, img: img64 }));
     dispatch(SaveAllToLocalStorage());
+    toast.success("Profile Data saved successfully");
   };
 
   useEffect(() => {

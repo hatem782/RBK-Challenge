@@ -1,0 +1,10 @@
+.main {
+  width: 100%;
+  background-color: var(--comp-background);
+  border-radius: 0.75rem;
+  padding: 25px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

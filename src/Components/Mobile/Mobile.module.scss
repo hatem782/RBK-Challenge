@@ -14,6 +14,10 @@
     width: 100%;
   }
 
+  .no_mobile_shape {
+    opacity: 0;
+  }
+
   .mobile_data {
     position: absolute;
     width: 100%;
@@ -86,6 +90,10 @@
         border-radius: 10px;
       }
     }
+  }
+
+  .mobile_data_reduces {
+    padding: 12% 0px 0px 0px;
   }
 }
 

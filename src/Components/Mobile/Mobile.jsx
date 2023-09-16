@@ -8,18 +8,28 @@ import arrow_icon from "../../Assets/Svgs/arrow.svg";
 
 import { data as list_medias } from "../../Assets/Data/Links";
 
-function Mobile() {
+function Mobile({ className = "", no_mobile_shape = false }) {
   const global_links = useSelector((state) => state.data.global_links);
   const user_img = useSelector((state) => state.data.user_img);
   const user_firstname = useSelector((state) => state.data.user_firstname);
   const user_last_name = useSelector((state) => state.data.user_last_name);
   const user_email = useSelector((state) => state.data.user_email);
 
+  console.log(user_img);
+
   return (
-    <div className={styles.mobile_cont}>
+    <div className={`${styles.mobile_cont} ${className}`}>
       <div className={styles.mobile}>
-        <img src={mobile_img} alt="mobile" />
-        <div className={styles.mobile_data}>
+        <img
+          src={mobile_img}
+          alt="mobile"
+          className={no_mobile_shape ? styles.no_mobile_shape : ""}
+        />
+        <div
+          className={`${styles.mobile_data} ${
+            no_mobile_shape ? styles.mobile_data_reduces : ""
+          }`}
+        >
           <div className={styles.mobile_img}>
             {user_img ? (
               <img src={user_img} alt="user" className={styles.user_img} />

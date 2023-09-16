@@ -11,6 +11,7 @@ import {
 } from "@dnd-kit/sortable";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  SaveAllToLocalStorage,
   changelocalLinksOrder,
   saveLinks,
 } from "../../../Redux/all_data.reducer";
@@ -96,7 +97,8 @@ const EditLinksSection = () => {
 
     if (!contin) return;
     dispatch(saveLinks([...local_links]));
-    navigate("/make-profile/edit-profile");
+    dispatch(SaveAllToLocalStorage());
+    toast.success("Links saved successfully");
   };
 
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Button.module.scss";
 
 function Button({
-  type = "filled",
+  type = "filled", // filled, outlined, text
   children = "",
   className = "",
   onClick = () => {},
