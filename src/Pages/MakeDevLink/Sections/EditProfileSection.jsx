@@ -17,7 +17,6 @@ import toast from "react-hot-toast";
 
 const EditProfileSection = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const user_data = useSelector((state) => state.data);
 
   const input_ref = useRef(null);
@@ -42,6 +41,7 @@ const EditProfileSection = () => {
 
   const onImgChange = (e) => {
     const file = e.target.files[0];
+
     const img64_file = (window.URL ? URL : window.webkitURL).createObjectURL(
       file
     );

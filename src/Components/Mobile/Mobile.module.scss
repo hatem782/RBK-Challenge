@@ -12,7 +12,11 @@
   }
 
   @include lt-lg {
-    width: 98%;
+    width: 90%;
+  }
+
+  @include lt-sm {
+    width: 80%;
   }
 }
 

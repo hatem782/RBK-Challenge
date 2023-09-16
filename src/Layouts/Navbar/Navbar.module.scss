@@ -15,10 +15,23 @@
     padding: 20px 15px;
   }
 
+  @include lt-md {
+    border-radius: 0.55rem;
+    padding: 10px 10px;
+  }
+
   .logo {
     height: 40px;
 
     @include lt-xxl {
+      height: 35px;
+    }
+
+    @include lt-md {
+      height: 25px;
+    }
+
+    @include lt-sm {
       height: 35px;
     }
   }
@@ -27,5 +40,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .preview {
+    button {
+      @include lt-sm {
+        padding: 10px 15px !important;
+      }
+    }
+
+    .see_icon {
+      height: 20px;
+    }
   }
 }

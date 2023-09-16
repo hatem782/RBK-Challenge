@@ -22,6 +22,11 @@ $purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
     padding: 12px 20px;
   }
 
+  @include lt-md {
+    padding: 10px 12px;
+    margin: 0px 5px;
+  }
+
   &:hover {
     span {
       color: var(--normal-purple);
@@ -41,12 +46,29 @@ $purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
       margin: 0px 3px 0px 0px;
       height: 19px;
     }
+
+    @include lt-md {
+      margin: 0px 3px 0px 0px;
+      height: 15px;
+    }
+
+    @include lt-sm {
+      height: 18px;
+    }
   }
 
   span {
     color: var(--grey1);
     font-weight: 700;
     font-size: 16px;
+
+    @include lt-md {
+      font-size: 14px;
+    }
+
+    @include lt-sm {
+      display: none;
+    }
   }
 }
 

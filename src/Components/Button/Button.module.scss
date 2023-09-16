@@ -21,6 +21,11 @@
     padding: 13px 22px;
     font-size: 17px;
   }
+
+  @include lt-md {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
 }
 
 .filled {
