@@ -1,0 +1,101 @@
+/*############################### Declarations ###############################*/
+$purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
+  hue-rotate(246deg) brightness(103%) contrast(108%);
+/*############################### Declarations ###############################*/
+
+.main {
+  width: 100%;
+  background-color: var(--comp-background);
+
+  padding: 12px 15px;
+  margin: 20px 0px;
+  border: solid 1px #bbbbbb;
+
+  border-radius: 8px;
+
+  position: relative;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    .left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 16px;
+        margin-right: 8px;
+      }
+
+      span {
+        font-size: 16px;
+      }
+    }
+
+    .right {
+      img {
+        width: 14px;
+      }
+    }
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 120%;
+    background-color: var(--comp-background);
+    border: solid 1px #bbbbbb;
+    border-radius: 8px;
+    padding: 6px 15px;
+    z-index: 20;
+
+    .item {
+      cursor: pointer;
+      padding: 15px 0px 15px 0px;
+      border-bottom: solid 1px #e0dfdf;
+      img {
+        width: 16px;
+        margin-right: 8px;
+      }
+
+      span {
+        font-size: 16px;
+      }
+
+      &:last-child {
+        border-bottom: solid 0px #e0dfdf;
+      }
+
+      &:hover {
+        span {
+          color: var(--normal-purple);
+        }
+        img {
+          filter: $purple-img;
+        }
+      }
+    }
+
+    .selected {
+      span {
+        color: var(--normal-purple);
+      }
+      img {
+        filter: $purple-img;
+      }
+    }
+  }
+}
+
+.open {
+  border: solid 1px var(--normal-purple);
+  .dropdown {
+    display: block !important;
+  }
+}

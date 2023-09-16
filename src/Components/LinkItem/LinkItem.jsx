@@ -3,6 +3,9 @@ import styles from "./LinkItem.module.scss";
 import drag_icon from "../../Assets/Svgs/drag.svg";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import Select from "../Select/Select";
+
+import { data as list_medias } from "../../Assets/Data/Links";
 
 function LinkItem({ item }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
@@ -21,6 +24,9 @@ function LinkItem({ item }) {
           <span>Link #{item}</span>
         </div>
         <span className={styles.remove}>Remove</span>
+      </div>
+      <div className={styles.body}>
+        <Select options={list_medias} />
       </div>
     </div>
   );
