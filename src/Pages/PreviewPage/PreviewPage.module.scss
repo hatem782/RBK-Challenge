@@ -38,5 +38,9 @@
     @include lt-xxl {
       height: 600px;
     }
+
+    @include lt-sm {
+      width: 300px;
+    }
   }
 }
