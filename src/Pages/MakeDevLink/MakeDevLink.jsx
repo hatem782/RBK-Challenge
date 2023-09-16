@@ -4,8 +4,9 @@ import Navbar from "../../Layouts/Navbar/Navbar";
 
 import Mobile from "../../Components/Mobile/Mobile";
 
-import EditLinksSection from "./EditLinksSection";
+import EditLinksSection from "./Sections/EditLinksSection";
 import { Navigate, Route, Routes } from "react-router-dom";
+import EditProfileSection from "./Sections/EditProfileSection";
 
 function MakeDevLink() {
   return (
@@ -19,7 +20,7 @@ function MakeDevLink() {
 
         <Routes>
           <Route path="/edit-links" element={<EditLinksSection />} />
-          <Route path="/edit-profile" element={<h1> </h1>} />
+          <Route path="/edit-profile" element={<EditProfileSection />} />
           <Route
             path="/*"
             element={<Navigate to="/make-profile/edit-links" />}

@@ -1,19 +1,22 @@
 import React from "react";
-import styles from "./MakeDevLink.module.scss";
+import styles from "../MakeDevLink.module.scss";
 
-import Button from "../../Components/Button/Button";
+import Button from "../../../Components/Button/Button";
 import AddIcon from "@mui/icons-material/Add";
-import LinkItem from "../../Components/LinkItem/LinkItem";
+import LinkItem from "../../../Components/LinkItem/LinkItem";
 import { DndContext, closestCenter } from "@dnd-kit/core";
 import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { useDispatch, useSelector } from "react-redux";
-import { changelocalLinksOrder, saveLinks } from "../../Redux/all_data.reducer";
+import {
+  changelocalLinksOrder,
+  saveLinks,
+} from "../../../Redux/all_data.reducer";
 import toast from "react-hot-toast";
 
-import { data as media_links } from "../../Assets/Data/Links";
+import { data as media_links } from "../../../Assets/Data/Links";
 import { useNavigate } from "react-router-dom";
 
 const EditLinksSection = () => {

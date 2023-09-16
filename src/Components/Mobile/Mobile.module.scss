@@ -33,6 +33,14 @@
         height: 110px;
         width: 110px;
       }
+
+      .user_img {
+        height: 110px;
+        width: 110px;
+        border-radius: 500px;
+        object-fit: cover;
+        border: solid 3px var(--normal-purple);
+      }
     }
 
     .mobile_full_name {
@@ -43,15 +51,29 @@
         margin: 20px 0px 10px 0px;
         border-radius: 500px;
       }
+
+      h3 {
+        text-align: center;
+        font-weight: 600;
+        font-size: 18px;
+        margin: 5px 0px;
+      }
     }
 
     .mobile_email {
-      width: 50%;
+      width: 100%;
       .email_skeleton {
         height: 12px;
-        width: 100%;
-        margin: 5px 0px;
+        width: 50%;
+        margin: 5px auto;
         border-radius: 500px;
+      }
+
+      p {
+        text-align: center;
+        font-weight: 400;
+        font-size: 16px;
+        margin: 5px 0px;
       }
     }
 

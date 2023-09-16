@@ -10,6 +10,10 @@ import { data as list_medias } from "../../Assets/Data/Links";
 
 function Mobile() {
   const global_links = useSelector((state) => state.data.global_links);
+  const user_img = useSelector((state) => state.data.user_img);
+  const user_firstname = useSelector((state) => state.data.user_firstname);
+  const user_last_name = useSelector((state) => state.data.user_last_name);
+  const user_email = useSelector((state) => state.data.user_email);
 
   return (
     <div className={styles.mobile_cont}>
@@ -17,25 +21,39 @@ function Mobile() {
         <img src={mobile_img} alt="mobile" />
         <div className={styles.mobile_data}>
           <div className={styles.mobile_img}>
-            <Skeleton
-              variant="circular"
-              animation="pulse"
-              className={styles.circle_skeleton}
-            />
+            {user_img ? (
+              <img src={user_img} alt="user" className={styles.user_img} />
+            ) : (
+              <Skeleton
+                variant="circular"
+                animation="pulse"
+                className={styles.circle_skeleton}
+              />
+            )}
           </div>
           <div className={styles.mobile_full_name}>
-            <Skeleton
-              variant="rounded"
-              animation="pulse"
-              className={styles.full_name_skeleton}
-            />
+            {user_firstname && user_last_name ? (
+              <h3>
+                {user_firstname} {user_last_name}
+              </h3>
+            ) : (
+              <Skeleton
+                variant="rounded"
+                animation="pulse"
+                className={styles.full_name_skeleton}
+              />
+            )}
           </div>
           <div className={styles.mobile_email}>
-            <Skeleton
-              variant="rounded"
-              animation="pulse"
-              className={styles.email_skeleton}
-            />
+            {user_email ? (
+              <p>{user_email}</p>
+            ) : (
+              <Skeleton
+                variant="rounded"
+                animation="pulse"
+                className={styles.email_skeleton}
+              />
+            )}
           </div>
 
           {global_links.map((item, key) => {
