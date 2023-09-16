@@ -33,9 +33,9 @@ function LinkItem({ item }) {
 
   return (
     <div ref={setNodeRef} {...attributes} style={style} className={styles.main}>
-      <div className={styles.header}>
+      <div className={styles.header} {...listeners}>
         <div className={styles.dragger}>
-          <img src={drag_icon} alt="" {...listeners} />
+          <img src={drag_icon} alt="" />
           <span>Link #{item.id}</span>
         </div>
         <span className={styles.remove} onClick={handle_delete}>
