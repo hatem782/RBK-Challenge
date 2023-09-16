@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./LinkItem.module.scss";
 import drag_icon from "../../Assets/Svgs/drag.svg";
 import { useSortable } from "@dnd-kit/sortable";
@@ -6,14 +6,29 @@ import { CSS } from "@dnd-kit/utilities";
 import Select from "../Select/Select";
 
 import { data as list_medias } from "../../Assets/Data/Links";
+import Input from "../Input/Input";
+import { useDispatch } from "react-redux";
+import { removeLocalLink } from "../../Redux/all_data.reducer";
 
-function LinkItem({ item }) {
+function LinkItem({ item, index }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: item });
+    useSortable({ id: item.id });
+  const dispatch = useDispatch();
 
   const style = {
     transition,
     transform: CSS.Transform.toString(transform),
+  };
+
+  const [form, setForm] = useState({ platform: "", link: "" });
+
+  const handle_change = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handle_delete = () => {
+    console.log(item.id);
+    dispatch(removeLocalLink(item.id));
   };
 
   return (
@@ -21,12 +36,27 @@ function LinkItem({ item }) {
       <div className={styles.header}>
         <div className={styles.dragger}>
           <img src={drag_icon} alt="" {...listeners} />
-          <span>Link #{item}</span>
+          <span>Link #{item.id}</span>
         </div>
-        <span className={styles.remove}>Remove</span>
+        <span className={styles.remove} onClick={handle_delete}>
+          Remove
+        </span>
       </div>
       <div className={styles.body}>
-        <Select options={list_medias} />
+        <Select
+          label="Platform"
+          name="platform"
+          options={list_medias}
+          onChange={handle_change}
+        />
+
+        <Input
+          label="Link"
+          placeholder="URL HERE"
+          name="link"
+          value={form.link}
+          onChange={handle_change}
+        />
       </div>
     </div>
   );

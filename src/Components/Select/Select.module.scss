@@ -4,16 +4,28 @@ $purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
 /*############################### Declarations ###############################*/
 
 .main {
+  margin: 20px 0px;
+  label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--title-big);
+    margin: 0px;
+  }
+}
+
+.select {
   width: 100%;
   background-color: var(--comp-background);
 
   padding: 12px 15px;
-  margin: 20px 0px;
+  margin: 6px 0px 0px 0px;
   border: solid 1px #bbbbbb;
 
   border-radius: 8px;
 
   position: relative;
+
+  transition: all 0.2s;
 
   .header {
     display: flex;
@@ -29,10 +41,12 @@ $purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
       img {
         width: 16px;
         margin-right: 8px;
+        transition: all 0.2s;
       }
 
       span {
         font-size: 16px;
+        transition: all 0.2s;
       }
     }
 
@@ -54,6 +68,7 @@ $purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
     border-radius: 8px;
     padding: 6px 15px;
     z-index: 20;
+    transition: all 0.2s;
 
     .item {
       cursor: pointer;
@@ -95,6 +110,8 @@ $purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
 
 .open {
   border: solid 1px var(--normal-purple);
+  box-shadow: 0 0 10px 0 rgba(99, 60, 255, 0.25);
+
   .dropdown {
     display: block !important;
   }

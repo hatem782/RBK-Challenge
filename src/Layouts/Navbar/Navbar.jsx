@@ -22,10 +22,6 @@ function Navbar() {
     navig(item.url);
   };
 
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
-
   return (
     <div className={styles.main}>
       <img src={logo} alt="" className={styles.logo} />

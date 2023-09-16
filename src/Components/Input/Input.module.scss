@@ -1,0 +1,32 @@
+/*############################### Declarations ###############################*/
+$purple-img: brightness(0) saturate(100%) invert(23%) sepia(98%) saturate(3673%)
+  hue-rotate(246deg) brightness(103%) contrast(108%);
+/*############################### Declarations ###############################*/
+
+.main {
+  margin: 20px 0px;
+
+  label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--title-big);
+    margin: 0px;
+    display: block;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    margin: 6px 0px 0px 0px;
+    border: solid 1px #bbbbbb;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s;
+
+    &:focus {
+      border: solid 1px var(--normal-purple);
+      box-shadow: 0 0 10px 0 rgba(99, 60, 255, 0.25);
+    }
+  }
+}

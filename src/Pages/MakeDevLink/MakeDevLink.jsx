@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./MakeDevLink.module.scss";
 import Navbar from "../../Layouts/Navbar/Navbar";
 
@@ -11,19 +11,43 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
+import { useDispatch, useSelector } from "react-redux";
+import { changelocalLinksOrder } from "../../Redux/all_data.reducer";
+import toast from "react-hot-toast";
 
 function MakeDevLink() {
-  const [items, setItems] = useState([1, 2, 3, 4, 5]);
+  const dispatch = useDispatch();
+
+  const local_links = useSelector((state) => state.data.local_links);
 
   const onDragEnd = (event) => {
     const { active, over } = event;
     if (active.id !== over.id) {
-      const oldIndex = items.indexOf(active.id);
-      const newIndex = items.indexOf(over.id);
-      const newItems = [...items];
+      const oldIndex = local_links.indexOf(active.id);
+      const newIndex = local_links.indexOf(over.id);
+      const newItems = [...local_links];
       newItems.splice(oldIndex, 1);
       newItems.splice(newIndex, 0, active.id);
-      setItems(newItems);
+      dispatch(changelocalLinksOrder(newItems));
+    }
+  };
+
+  const AddLink = () => {
+    if (local_links.length > 4) {
+      toast.error("You can't add more than 5 links");
+    } else {
+      let new_id;
+      if (local_links.length === 0) {
+        new_id = 1;
+      } else {
+        new_id = local_links[local_links.length - 1].id + 1;
+      }
+      const new_link = {
+        id: new_id,
+        platform: "",
+        link: "",
+      };
+      dispatch(changelocalLinksOrder([...local_links, new_link]));
     }
   };
 
@@ -42,7 +66,12 @@ function MakeDevLink() {
             the world!
           </p>
 
-          <Button type="outlined" icon={<AddIcon />} className={styles.btn_fw}>
+          <Button
+            type="outlined"
+            icon={<AddIcon />}
+            className={styles.btn_fw}
+            onClick={AddLink}
+          >
             Add new Link
           </Button>
 
@@ -52,11 +81,11 @@ function MakeDevLink() {
             className={styles.links}
           >
             <SortableContext
-              items={items}
+              items={local_links}
               strategy={verticalListSortingStrategy}
             >
-              {items.map((item) => (
-                <LinkItem key={item} item={item} />
+              {local_links.map((item, key) => (
+                <LinkItem key={item.id} item={item} />
               ))}
             </SortableContext>
           </DndContext>
